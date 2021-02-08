@@ -1,0 +1,38 @@
+8
+Zagorka
+Mol Galeria
+Remiza
+Ml. Dom
+Bqla mechka
+Hristo Botev
+Poshta
+Otec Paisii
+
+5
+7 3 Zagorka, Mol Galeria, Bqla mechka
+120 4 Zagorka, Mol Galeria, Ml. Dom, Hristo Botev
+80 3 Zagorka, Hristo Botev, Poshta
+94 4 Zagorka, Remiza, Otec Paisii, Poshta
+3 3 Mol Galeria, Ml. Dom, Poshta
+-
+7, Zagorka, 365 375 385
+7, Mol Galeria, 368 378 388
+7, Bqla mechka, 374 380 386
+-
+120, Zagorka, 363 367 371
+120, Mol Galeria, 367 371 375
+120, Ml. Dom, 371 375 379
+120, Hristo Botev, 374 378 379
+-
+80, Zagorka, 361 364 367
+80, Hristo Botev, 376 379 382
+80, Poshta, 381 384 387
+-
+94, Zagorka, 364 370 376
+94, Remiza, 367 373 379
+94, Otec Paisii, 372 377 382
+94, Poshta, 378 383 388
+-
+3, Mol Galeria, 368 373 378
+3, Ml. Dom, 373 378 383
+3, Poshta, 378 383 388
