@@ -63,12 +63,12 @@ typedef  unordered_map<string, vector<unsigned>> stopSchedule;
 
 Обектите от тип Graph съдържат следните член - данни:
 
-* vector <Node> vertices - списък с върхове
+* vector<Node> vertices - списък с върхове
   
 Обектите от тип Node съдържат следните член - данни:
 
 * BusStop* stop - спирка
-* vector <Edge> adj - списък с автобуси, които отиват до следващ връх(спирка)
+* vector<Edge> adj - списък с автобуси, които отиват до следващ връх(спирка)
 * Node* pred - указател към предишен връх(спирка)
 * int timeFromStart - време
 * int busID - номер на автобус
