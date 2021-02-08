@@ -65,7 +65,7 @@ typename Graph::Node* Graph::next(std::unordered_set<Node*> &in)
     int size = vertices.size();
     for (int i = 0; i < size; i++)
     {
-        if (vertices[i].timeFromStart != -1 && in.find(&vertices[i]) == in.end())
+        if (vertices[i].timeFromStart != -1 && in.find(&vertices[i]) == in.end())  //if not found -> end iter
         {
             if (min == nullptr || vertices[i].timeFromStart < min->timeFromStart)
                 min = &vertices[i];
@@ -154,7 +154,8 @@ void Graph::printDijkstra(Node* node) const
 
 
 unsigned Graph::shortestRoute(const string& start, const string& end, unsigned startingTime, Schedule& sch)
-{
+{   
+  
     Node* startNode = getByStopName(start);
     dijkstraInit(startNode, startingTime, sch);
     size_t size = vertices.size();
