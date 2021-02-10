@@ -96,9 +96,7 @@ bool FileInputOutput::input( Program& Container)
 				reading_file >> time;
 				times.push_back(time);
 			}
-			schedule->addSchedule(busID, busStopName, times);
-			Container.addSchedule(schedule);
-
+			Container.addSchedule(busID, busStopName, times);
 			reading_file.get(c);
 			
 			if (c == '-')
@@ -162,10 +160,10 @@ bool FileInputOutput::output(Program& Container)
 			string busStop_name = Container.getBus(busId)->getRoute()[j]->getName();
 			writing_file << busId << ", " << busStop_name << ", ";
 			//for the times
-			int numTimes = Container.getSchedule()->getNumTimes(busId, busStop_name);
+			int numTimes = Container.getSchedule().getNumTimes(busId, busStop_name);
 			for (int t = 0; t < numTimes; t++)
 			{
-				unsigned time = Container.getSchedule()->getTimeByIndex(busId, busStop_name, t);
+				unsigned time = Container.getSchedule().getTimeByIndex(busId, busStop_name, t);
 				writing_file << time;
 				if (t != numTimes - 1)
 					writing_file << " ";

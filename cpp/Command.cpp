@@ -41,17 +41,24 @@ void Command::execute(const string& command)
 		unsigned numStops;
 		cin >> numStops;
 		string busStopName;
-		Schedule* schedule = new Schedule();
 		for (int i = 0; i < numStops; i++)
 		{
 			cout << "Enter the " << i + 1 << " bus stop name\n";
 			cin.ignore();
 			getline(cin, busStopName);
 			BusStop* busStopptr = containers->getBusStop(busStopName);
+			while (busStopptr == nullptr)
+			{
+				cout << "There is no such a bus stop name\n";
+				cout << "Please enter an existing bus stop name\n";
+				getline(cin, busStopName);
+				busStopptr = containers->getBusStop(busStopName);
+
+			}
 			busptr->addBusStopInRoute(busStopptr);
 			busStopptr->addBus(busptr);
 
-			cout << "Etner the schedule for that stop\n"
+			cout << "Enter the schedule for that stop\n"
 				 << "Enter the number of times you will enter\n";
 
 			unsigned numTimes;
@@ -59,14 +66,13 @@ void Command::execute(const string& command)
 			vector<unsigned> times;
 			for (int j = 0; j < numTimes; j++)
 			{
-				cout << "Etner the " << j + 1 << " time\n";
+				cout << "Enter the " << j + 1 << " time\n";
 				unsigned time;
 				cin >> time;
 				times.push_back(time);
 			}
-			schedule->addSchedule(busID, busStopName, times);
+			containers->addSchedule(busID, busStopName, times);
 		}
-		containers->addSchedule(schedule);
 	}
 	else if (command == "add course")
 	{
@@ -94,10 +100,9 @@ void Command::execute(const string& command)
 			busptr->addBusStopInRoute(busStopptr);
 			busStopptr->addBus(busptr);
 
-			cout << "Etner the schedule for that stop\n";
+			cout << "Enter the schedule for that stop\n";
 			
-			int numTimes = containers->getSchedule()->getNumTimes(busID, busStopName); //num times 
-			Schedule* schedule = new Schedule();
+			int numTimes = containers->getSchedule().getNumTimes(busID, busStopName); //num times 
 			if (numTimes == 0)
 			{
 				cout << "Enter the number of times you will enter\n";
@@ -106,26 +111,24 @@ void Command::execute(const string& command)
 				vector<unsigned> times;
 				for (int i = 0; i < numTimes; i++)
 				{
-					cout << "Etner the " << i + 1 << " time\n";
+					cout << "Enter the " << i + 1 << " time\n";
 					unsigned time;
 					cin >> time;
 					times.push_back(time);
 				}
-				schedule->addSchedule(busID, busStopName, times);
-				containers->addSchedule(schedule);
+				containers->addSchedule(busID, busStopName, times);
 			}
 			else
 			{
 				vector<unsigned> times;
 				for (int i = 0; i < numTimes; i++)
 				{
-					cout << "Etner the " << i + 1 << " time\n";
+					cout << "Enter the " << i + 1 << " time\n";
 					unsigned time;
 					cin >> time;
 					times.push_back(time);
 				}
-				schedule->addSchedule(busID, busStopName, times);
-				containers->addSchedule(schedule);
+				containers->addSchedule(busID, busStopName, times);
 			}
 		}
 		else

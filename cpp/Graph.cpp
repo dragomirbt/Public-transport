@@ -51,8 +51,8 @@ Graph::Graph(std::vector<BusStop*> &stops, vector<Bus*> &busses)
         {
             if (vertices[i].stop->hasBus(busses[j]->getID()))
             {
-                nextStop = busses[j]->getAfterStop(vertices[i].stop);
-                if (nextStop != nullptr)
+                nextStop = busses[j]->getAfterStop(vertices[i].stop); //next stop in route
+                if (nextStop != nullptr) //if not last stop
                     addEdge(vertices[i], nextStop, busses[j]);
             }
         }

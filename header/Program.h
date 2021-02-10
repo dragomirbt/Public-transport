@@ -12,19 +12,19 @@ class Program
 private:
 	vector<BusStop*> BusStopsContainer;
 	vector<Bus*> BusesContainer;
-	Schedule* schedule;
+	Schedule schedule;
 public:
 	~Program();
 	int getNumBusStops() const;
 	int getNumBuses() const;
 	void addBusStop(BusStop*& stop);
 	void addBus(Bus*& bus);
-	void addSchedule(Schedule*& sch);
+	void addSchedule(const int busID, const string& busStopName, const vector<unsigned>& times);
 	BusStop* getBusStop(const string& BusStopName);
 	Bus* getBus(const int ID);
 	vector<BusStop*> getBusStopContainer() const;
 	vector<Bus*> getBusesContainer() const;
-	Schedule* getSchedule() const;
+	Schedule getSchedule() const;
 	bool hasBusStop(const string& busStopName);
 	int getBusWithID(const int busID);
 	void deleteBusStop(const string& busStopName);

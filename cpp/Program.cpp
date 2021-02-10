@@ -10,7 +10,7 @@ Program::~Program()
 	for (int i = 0; i < BusesSize; i++)
 		delete BusesContainer[i];
 
-	delete schedule;
+	//delete schedule;
 }
 
 int Program::getNumBusStops() const
@@ -30,9 +30,9 @@ void Program::addBus(Bus*& bus)
 {
 	BusesContainer.push_back(bus);
 }
-void Program::addSchedule(Schedule*& sch)
+void Program::addSchedule(const int busID, const string& busStopName, const vector<unsigned>& times)
 {
-	schedule = sch;
+	schedule.addSchedule(busID, busStopName, times);
 }
 
 BusStop* Program::getBusStop(const string& BusStopName)
@@ -63,7 +63,7 @@ vector<Bus*> Program::getBusesContainer() const
 {
 	return BusesContainer;
 }
-Schedule* Program::getSchedule() const
+Schedule Program::getSchedule() const
 {
 	return schedule;
 }
@@ -135,7 +135,7 @@ void Program::deleteBusStopSchedule(const string& busStopName)
 		{
 			if (BusesContainer[i]->getRoute()[j]->getName() == busStopName)
 			{
-				schedule->deleteCourse(BusesContainer[i]->getID(), busStopName);
+				schedule.deleteCourse(BusesContainer[i]->getID(), busStopName);
 				break;
 			}
 		}
@@ -145,7 +145,7 @@ void Program::deleteBusStopSchedule(const string& busStopName)
 void Program::deleteBusLine(const int busID)
 {
 	//deletes the whole schedule for a bus
-	schedule->deleteBusLine(busID);
+	schedule.deleteBusLine(busID);
 
 	//delete the bus
 	int numBuses = BusesContainer.size();
@@ -170,7 +170,7 @@ void Program::deleteBusLine(const int busID)
 }
 void Program::deleteCourse(const int busID, const string& busStopName)
 {
-	schedule->deleteCourse(busID, busStopName);
+	schedule.deleteCourse(busID, busStopName);
 }
 void Program::deleteBusFromBusStop(const int busID, const string& busStopName)
 {
@@ -190,11 +190,11 @@ void Program::deleteBusFromBusStop(const int busID, const string& busStopName)
 }
 void Program::printBusStopSchedule(const string& busStopName)
 {
-	schedule->printSchedule(busStopName);
+	schedule.printSchedule(busStopName);
 }
 
 void Program::printBusLineSchedule(const int busID)
 {
-	schedule->printBusLineSchedule(busID);
+	schedule.printBusLineSchedule(busID);
 }
 

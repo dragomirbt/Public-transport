@@ -13,7 +13,6 @@ using namespace std;
 int main()
 {
 	Program Container;
-
 	cout << "Are you going to add an information from file? \n";
 	string vote;
 	cin >> vote;
@@ -40,7 +39,7 @@ int main()
 
 	vector<BusStop*> stops = Container.getBusStopContainer();
 	vector<Bus*> buses = Container.getBusesContainer();
-	Schedule* sch = Container.getSchedule();
+	Schedule sch = Container.getSchedule();
 	Graph g(stops, buses);
 
 	cout << "Enter the bus stop name you will start from:\n";
@@ -53,7 +52,7 @@ int main()
 	unsigned start_time;
 	cin >> start_time;
 	
-	g.shortestRoute(startBusStopName, endBusStopName, start_time, *sch);
+	g.shortestRoute(startBusStopName, endBusStopName, start_time, sch);
 	cout << endl;
 	
 	cout << "Do you want to save the data int file:\n";
