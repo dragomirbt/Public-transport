@@ -44,7 +44,7 @@ typedef  unordered_map<string, vector<unsigned>> stopSchedule;
 
 * vector<BusStop*> BusStopsContainer - контейнер за всички спирки
 * vector<Bus*> BusesContainer - контейнер за всички автобуси
-* Schedule* schedule - разписание
+* Schedule schedule - разписание
 
 Класът, с който можем да модифицираме контейнерите (да добавяме и премахваме елементи) е Command.
 
