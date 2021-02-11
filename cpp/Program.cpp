@@ -10,7 +10,6 @@ Program::~Program()
 	for (int i = 0; i < BusesSize; i++)
 		delete BusesContainer[i];
 
-	//delete schedule;
 }
 
 int Program::getNumBusStops() const
