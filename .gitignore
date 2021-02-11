@@ -1,6 +1,3 @@
 Debug
 *.txt
 *.zip
-*.vcxproj
-*.filters
-*.user
