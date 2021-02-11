@@ -154,9 +154,9 @@
     <ClCompile Include="cpp\Command.cpp" />
     <ClCompile Include="cpp\FileInputOutput.cpp" />
     <ClCompile Include="cpp\Graph.cpp" />
-    <ClCompile Include="cpp\main.cpp" />
     <ClCompile Include="cpp\Program.cpp" />
     <ClCompile Include="cpp\Schedule.cpp" />
+    <ClCompile Include="cpp\tests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
